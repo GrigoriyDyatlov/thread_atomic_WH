@@ -1,10 +1,8 @@
 package ru.netology;
 
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -84,12 +82,13 @@ public class Main {
             }
         };
         threadPoll.execute(logic3);
-        while (!threadPoll.awaitTermination(3, TimeUnit.SECONDS)) {
-        }
-        threadPoll.shutdown();
+        threadPoll.awaitTermination(15, TimeUnit.SECONDS);
         System.out.println("Красивых слов с длиной 3: " + cnt3 + " шт\n" +
                 "Красивых слов с длиной 4: " + cnt4 + " шт\n" +
                 "Красивых слов с длиной 5: " + cnt5 + " шт\n");
+
+        threadPoll.shutdown();
+
     }
 
     public static String generateText(String letters, int length) {

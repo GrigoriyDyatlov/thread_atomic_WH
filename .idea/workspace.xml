@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82a74041-cc9b-4097-b7de-a455ede9428f" name="Changes" comment="reformate">
+    <list default="true" id="82a74041-cc9b-4097-b7de-a455ede9428f" name="Changes" comment="change while 87 main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/Main.java" afterDir="false" />
     </list>
@@ -63,12 +63,21 @@
       <option name="project" value="LOCAL" />
       <updated>1730030095183</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="change while 87 main">
+      <option name="closed" value="true" />
+      <created>1730044179248</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730044179248</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="reformate" />
-    <option name="LAST_COMMIT_MESSAGE" value="reformate" />
+    <MESSAGE value="change while 87 main" />
+    <option name="LAST_COMMIT_MESSAGE" value="change while 87 main" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
