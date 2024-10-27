@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -83,7 +84,7 @@ public class Main {
             }
         };
         threadPoll.execute(logic3);
-        while (!threadPoll.isTerminated()) {
+        while (!threadPoll.awaitTermination(3, TimeUnit.SECONDS)) {
         }
         threadPoll.shutdown();
         System.out.println("Красивых слов с длиной 3: " + cnt3 + " шт\n" +
