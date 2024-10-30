@@ -20,10 +20,10 @@ public class Main {
             texts[i] = generateText("abc", 3 + random.nextInt(3));
         }
 
-        ExecutorService threadPoll = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+//        ExecutorService threadPoll = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
 
-        Runnable logic1 = () -> {
+        Thread logic1 = new Thread (() -> {
             for (int i = 0; i < texts.length; i++) {
                 if (isPalindrome(texts[i])) {
                     int length = texts[i].length();
@@ -40,10 +40,10 @@ public class Main {
                     }
                 }
             }
-        };
-        threadPoll.execute(logic1);
+        });
+//        threadPoll.execute(logic1);
 
-        Runnable logic2 = () -> {
+        Thread logic2 = new Thread (() -> {
             for (int i = 0; i < texts.length; i++) {
                 if (isOneChar(texts[i])) {
                     int length = texts[i].length();
@@ -60,10 +60,10 @@ public class Main {
                     }
                 }
             }
-        };
-        threadPoll.execute(logic2);
+        });
+//        threadPoll.execute(logic2);
 
-        Runnable logic3 = () -> {
+        Thread logic3 = new Thread (() -> {
             for (int i = 0; i < texts.length; i++) {
                 if (isAlphabetically(texts[i])) {
                     int length = texts[i].length();
@@ -80,14 +80,21 @@ public class Main {
                     }
                 }
             }
-        };
-        threadPoll.execute(logic3);
-        threadPoll.awaitTermination(15, TimeUnit.SECONDS);
+        });
+        logic1.start();
+        logic2.start();
+        logic3.start();
+        logic3.join();
+        logic2.join();
+        logic1.join();
+
+//        threadPoll.execute(logic3);
+//        threadPoll.awaitTermination(15, TimeUnit.SECONDS);
         System.out.println("Красивых слов с длиной 3: " + cnt3 + " шт\n" +
                 "Красивых слов с длиной 4: " + cnt4 + " шт\n" +
                 "Красивых слов с длиной 5: " + cnt5 + " шт\n");
 
-        threadPoll.shutdown();
+//        threadPoll.shutdown();
 
     }
 
